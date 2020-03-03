@@ -1,0 +1,28 @@
+.HamburgerButton {
+  margin-left: auto;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  visibility: hidden;
+
+  span {
+    width: 100%;
+    height: 1px;
+    background-color: @colors[black];
+    display: inline-block;
+    margin: 3px 0;
+  }
+}
+
+@media screen and (max-width: @size[phone]) {
+  .ant-layout-header {
+    .ant-menu {
+      display: none;
+    }
+  }
+
+  .HamburgerButton {
+    visibility: visible;
+  }
+}

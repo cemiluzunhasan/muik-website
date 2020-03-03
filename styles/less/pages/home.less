@@ -1,0 +1,49 @@
+.Banner {
+  background: url("/static/img/marmarauniversity.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .full-content {
+    height: 100%;
+    padding-top: 100px;
+    z-index: 0;
+    color: @colors(white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .MarmaraLogo {
+    width: 90px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+.Cards {
+  .full-content {
+    padding: 100px 0;
+  }
+  .CardItem {
+    display: inline-block;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+    width: calc(25% - 20px);
+    margin: 0 10px;
+    padding: 30px;
+  }
+}

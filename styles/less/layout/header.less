@@ -1,0 +1,38 @@
+.HeaderMenu {
+  .logo {
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
+.ant-layout-header {
+  height: 100px !important;
+  line-height: 100px !important;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.11);
+
+  &.transparent {
+    background-color: transparent !important;
+    color: @colors[white];
+    .ant-menu {
+      background: transparent !important;
+      color: #fff;
+    }
+  }
+
+  .full-content {
+    display: flex;
+    align-items: center;
+  }
+}
+.ant-menu {
+  line-height: 98px !important;
+  &.ant-menu-horizontal {
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
+}
