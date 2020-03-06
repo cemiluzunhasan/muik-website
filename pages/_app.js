@@ -3,19 +3,21 @@ import 'antd/dist/antd.css';
 import '../styles/main.less';
 
 import { Layout } from 'antd';
-import HeaderMenu from '../components/Layout/HeaderMenu';
+import { MuikHeader, MuikFooter } from '../components/Layout';
 
 const { Header, Content, Footer } = Layout;
 
 const MyApp  = ({ Component, pageProps }) => (
   <Layout>
     <Header>
-      <HeaderMenu />
+      <MuikHeader />
     </Header>
     <Content>
       <Component {...pageProps} />
     </Content>
-    <Footer>Created by Jamallo</Footer>
+    <Footer>
+      <MuikFooter />
+    </Footer>
   </Layout>
 )
 

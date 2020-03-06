@@ -22,7 +22,7 @@ const Committies = ({ router }) => {
         <p className="text-grey">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
       </div>
       <div className="CommitteeItem d-iflex j-center a-center fd-column">
-        <h1 className="text-bold text-white">İLETİŞİM A.</h1>
+        <h1 className="text-bold text-white">İLETİŞİM ATÖLYESİ</h1>
         <p className="text-grey">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
       </div>
       <div className="CommitteeItem d-iflex j-center a-center fd-column">
