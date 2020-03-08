@@ -9,5 +9,24 @@
     .footer-icon {
       width: 20px;
     }
+
+    .FooterMenuItem {
+      cursor: pointer;
+      text-decoration: underline;
+      transition: all 0.3s;
+      color: @colors[grey];
+
+      &:hover {
+        color: @colors[pink];
+      }
+    }
+  }
+}
+
+#mapid {
+  height: 180px;
+
+  .leaflet-control:last-of-type {
+    display: none;
   }
 }
