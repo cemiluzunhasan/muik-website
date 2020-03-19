@@ -1,9 +1,10 @@
 import React from 'react';
-import { Banner, Cards } from '../components/Pages/Home';
+import { Banner, Cards, Statistics } from '../components/Pages/Home';
 
 const Home = () => (
   <div className="Home">
     <Banner />
+    <Statistics />
     <Cards />
   </div>
 )
