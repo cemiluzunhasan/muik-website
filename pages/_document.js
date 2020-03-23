@@ -9,8 +9,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
         <title>MÜİK</title>
+        <Head>
           <link rel="icon" href="/favicon.ico" />
           <link href="https://fonts.googleapis.com/css?family=Nunito:400,600i,700,800&display=swap" rel="stylesheet"></link>
           <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap" rel="stylesheet"></link>

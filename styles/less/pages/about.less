@@ -25,22 +25,36 @@
   }
 
   .Members {
-    .Member {
+    margin-top: 10vh;
+    .Avatar {
+      width: 100%;
+      border-radius: 50%;
+    }
+    .MemberCard {
+      max-width: 250px;
       padding: 30px;
       margin: 0 15px;
       transition: all 0.3s;
-      
+      background: @colors[white];
+
+      * {
+        transition: all .3s;
+      }
+
       &:hover {
         box-shadow: 0px 3px 16px 10px rgba(224,224,224,1);
         transform: translateY(-30px);
-      }
 
-      .MemberImage {
-        width: 200px;
-        border-radius: 50%;
+        .MemberName, .MemberRole {
+          opacity: 1;
+        }
+      }
+      .MemberRole {
+        opacity: 0;
       }
       .MemberName {
-
+        margin-top: 20px;
+        font-size: 20px;
       }
     }
   }

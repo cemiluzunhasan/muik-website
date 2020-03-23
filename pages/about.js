@@ -54,9 +54,7 @@ const About = () => {
           </Row>
         </Row>
         <Row>
-          <Row className="margin-t-4xl">
-            <Members />
-          </Row>
+          <Members />
         </Row>
       </div>
     </div>
