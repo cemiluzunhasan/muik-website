@@ -28,9 +28,10 @@ const MuikHeader = ({ router }) => {
             </div>
           </Menu.Item>
           <Menu.Item key="who-we-are" onClick={() => goTo('/about')}>BİZ KİMİZ</Menu.Item>
-          <Menu.Item key="committies" onClick={() => goTo('/committies')}>KOMİTELERİMİZ</Menu.Item>
           <Menu.Item key="blog" onClick={() => goTo('/blog')}>BLOG</Menu.Item>
           <Menu.Item key="events" onClick={() => goTo('/events')}>ETKİNLİKLER</Menu.Item>
+          <Menu.Item key="contact" onClick={() => goTo('/contact')}>İLETİŞİM</Menu.Item>
+          <Menu.Item key="articles" onClick={() => goTo('/makale')}>MAKALELER</Menu.Item>
         </Menu>
         <div className="HamburgerButton" onClick={openDrawer}>
           <span className="first" />
