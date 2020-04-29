@@ -1,5 +1,5 @@
 
-export const eventCategories = [
+export const categories = [
   {
     id: 1,
     value: 'sports',
@@ -31,3 +31,21 @@ export const eventCategories = [
     name: 'Sosyal Sorumluluk'
   },
 ];
+
+export const Quill = {
+  formats: [
+    'header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet',
+    'link', 'image', 'video'
+  ],
+  modules: {
+    toolbar: [
+      [{ 'header': '1'}, { header: '2'}, { font: []},
+      [{ size: [] }]],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ 'list': 'ordered'}, { list: 'bullet'}],
+      ['link', 'image', 'video'],
+      ['clean'],
+      ['code-block']
+    ]
+  },
+}

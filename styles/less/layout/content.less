@@ -1,3 +1,13 @@
+.DashboardContainer {
+  height: 100%;
+  padding: 10px;
+  background-color: #f7fafe;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
 .full-content {
   max-width: 94%;
   width: 1440px;
@@ -15,8 +25,10 @@
 }
 
 .section {
-  height: 100vh;
+  height: calc(100vh - 100px);
   position: relative;
+  padding: 30px;
+  background-color: @colors[white];
 }
 
 .page {

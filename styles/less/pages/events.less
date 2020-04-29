@@ -1,6 +1,7 @@
 .Events {
   .SearchBar {
-    background: url('//demo.gloriathemes.com/eventchamp/demo/wp-content/themes/eventchamp/include/assets/img/breadcrumbs-bg.jpg');
+    background: url('//demo.gloriathemes.com/eventchamp/demo/wp-content/themes/eventchamp/include/assets/img/breadcrumbs-bg.jpg') no-repeat center;
+    background-size: cover;
     padding: 15vh 0;
     position: relative;
 
@@ -12,6 +13,41 @@
       left: 0;
       right: 0;
       background-color: rgba(0,0,0,0.4);
+    }
+  }
+
+  .EventItem {
+    display: inline-block;
+    margin: 30px;
+    width: calc(30% - 60px);
+    
+    .EventImage {
+      width: 100%;
+    }
+    .EventBody {
+      background: @colors[white];
+      position: relative;
+      top: -30px;
+      border-top: 5px solid lighten(@colors[pink], 30%);
+      border-radius: 10px;
+      margin: 0 10px; 
+      text-align: left;
+      padding: 10px;
+
+      .EventCategory {
+        padding: 7px 20px;
+        border-radius: 25px;
+        font-size: 12px;
+      }
+      .EventDateContainer {
+        padding: 7px 20px;
+        margin-left: 10px;
+      }
+
+      .EventIcon {
+        margin-right: 5px;
+        color: @colors[pink];
+      }
     }
   }
 }

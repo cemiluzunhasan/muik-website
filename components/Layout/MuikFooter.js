@@ -5,11 +5,12 @@ import { Row, Col } from 'antd';
 class MuikFooter extends React.Component {
   
   state = {
-    location: [40.986099, 29.053600],
-    inBrowser: false
+    location: [40.986099, 29.053600]
   };
+
   componentDidMount() {
     var mymap = L.map('mapid').setView([40.986099, 29.053600], 11);
+    
     var marker = L.marker([40.986099, 29.053600]).addTo(mymap);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       maxZoom: 18,

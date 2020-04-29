@@ -4,8 +4,10 @@ const AboutUs = () => {
   return (
     <div className='AboutUs'>
       <Row align='middle' className='margin-t-xxl'>
-        <h3 className='text-pink text-bold'>Biz Kimiz?</h3>
-        <h2 className='section-header'>Lorem Ipsum Dolor Sit Amet</h2>
+        <div>
+          <h3 className='text-pink text-bold'>Biz Kimiz?</h3>
+          <h2 className='section-header'>Lorem Ipsum Dolor Sit Amet</h2>
+        </div>
         <Row gutter={32} className='margin-t-xxl'>
           <Col span={8}>
             <img
@@ -34,10 +36,10 @@ const AboutUs = () => {
         </Row>
       </Row>
       <Row justify='end' className='margin-t-4xl'>
-        <h3 className='text-pink text-bold text-right'>Vizyon</h3>
-        <h2 className='section-header text-right'>
-          Lorem Ipsum Dolor Sit Amet
-        </h2>
+        <div className="text-right">
+          <h3 className='text-pink text-bold'>Vizyon</h3>
+          <h2 className='section-header'>Lorem Ipsum Dolor Sit Amet</h2>
+        </div>
         <Row gutter={32} className='margin-t-xxl'>
           <Col span={16}>
             <p className='section-info'>
@@ -65,9 +67,11 @@ const AboutUs = () => {
           </Col>
         </Row>
       </Row>
-      <Row justify='end' className='margin-t-4xl'>
-        <h3 className='text-pink text-bold'>Misyon</h3>
-        <h2 className='section-header'>Lorem Ipsum Dolor Sit Amet</h2>
+      <Row justify='start' className='margin-t-4xl'>
+        <div className="text-left">
+          <h3 className='text-pink text-bold'>Misyon</h3>
+          <h2 className='section-header'>Lorem Ipsum Dolor Sit Amet</h2>
+        </div>
         <Row gutter={32} className='margin-t-xxl'>
           <Col span={8}>
             <img

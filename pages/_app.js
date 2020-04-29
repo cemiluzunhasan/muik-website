@@ -1,42 +1,46 @@
 // import App from 'next/app'
 import 'antd/dist/antd.css';
 import '../styles/main.less';
-
-import { useEffect } from 'react';
-import firebase from 'firebase';
 import { Layout } from 'antd';
-import { MuikHeader, MuikFooter } from '../components/Layout';
+import { MuikHeader, MuikFooter, MuikSider } from '../components/Layout';
+import { withRouter } from 'next/router';
+import { Provider } from 'react-redux';
+import { LogoutOutlined } from '@ant-design/icons';
+import store from '../store';
+const { Header, Sider, Content, Footer } = Layout;
 
-const { Header, Content, Footer } = Layout;
-
-const MyApp  = ({ Component, pageProps }) => {
-  useEffect(() => {
-    var firebaseConfig = {
-      apiKey: "AIzaSyBFM5g2undrRNOKKMe2Q0GVSVBlv2FJAaA",
-      authDomain: "muik-website.firebaseapp.com",
-      databaseURL: "https://muik-website.firebaseio.com",
-      projectId: "muik-website",
-      storageBucket: "muik-website.appspot.com",
-      messagingSenderId: "42631606001",
-      appId: "1:42631606001:web:f6fe49fe8a7269ca7f0350",
-      measurementId: "G-5NV1R6C7ST"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  }, []);
+const MyApp  = ({ Component, pageProps, router }) => {
+  const { route } = router;
   return (
-    <Layout>
-      <Header>
-        <MuikHeader />
-      </Header>
-      <Content>
-        <Component {...pageProps} />
-      </Content>
-      <Footer>
-        <MuikFooter />
-      </Footer>
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Header>
+          <MuikHeader />
+        </Header>
+        {!route.includes('/dashboard') ? 
+          <Content>
+            <Component {...pageProps} />
+          </Content>
+          :
+          <Layout>
+            <Sider className="Sider">
+              <MuikSider />
+              <LogoutOutlined />
+            </Sider>
+            <Content>
+              <div className="DashboardContainer page">
+                <Component {...pageProps} />
+              </div>
+            </Content>
+          </Layout>
+        }
+        {(!route.includes('/dashboard') || !route.includes('/login')) &&
+        <Footer>
+          <MuikFooter />
+        </Footer>
+        }
+      </Layout>
+    </Provider>
   );
 }
 
@@ -52,4 +56,4 @@ const MyApp  = ({ Component, pageProps }) => {
 //   return { ...appProps }
 // }
 
-export default MyApp;
+export default withRouter(MyApp);
