@@ -42,8 +42,8 @@ export default class Proxy {
       return new Promise((resolve, reject) => {
         firebase.database().ref(endpoint).on('value', snapshot => {
           resolve(Object.values(snapshot.val()));
-        }, error => {
-          reject(error);
+        }, err => {
+          reject(err);
         });
       })
     }

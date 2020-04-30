@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { global } from '../../../store/actions';
 
-const ListMembers = () => {
+const ListMembers = ({ dispatch, members }) => {
+  useEffect(() => {
+    dispatch(global.getData({ key: 'members', url: '/members'}));
+  }, []);
+
   return (
     <div className="ListMembers page">
-      List Members
+      { console.log(members) }
     </div> 
   );
 }
 
-export default ListMembers;
+const mapStateToProps = ({ members }) => ({ members });
+export default connect(mapStateToProps)(ListMembers);
