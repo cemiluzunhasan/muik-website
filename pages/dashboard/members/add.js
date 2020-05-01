@@ -62,7 +62,7 @@ const AddMember = ({ dispatch }) => {
   }
 
   const submit = () => {
-    dispatch(global.addData({ url: '/members', data: member }));
+    dispatch(global.addData({ url: '/members', data: member }, member.id));
   }
 
   const uploadButton = (

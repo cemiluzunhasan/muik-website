@@ -1,0 +1,33 @@
+.DashboardContainer {
+  .MemberCard {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+    padding: 20px;
+    margin: 20px;
+
+    .MemberImage {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .MemberName {
+      margin-top: 10px;
+    }
+    .MemberRole {
+      margin-bottom: 0;
+    }
+
+    .DeleteIcon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      color: @colors[pink];
+      cursor: pointer;
+    }
+  }
+}

@@ -48,4 +48,14 @@ export default class Proxy {
       })
     }
   }
+
+  deleteData(endpoint, id) {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref(`${endpoint}/${id}`).remove().then(res => {
+        resolve(res);
+      }).catch(err => {
+        reject(err);
+      })
+    })
+  }
 }

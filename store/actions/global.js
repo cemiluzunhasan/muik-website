@@ -17,7 +17,7 @@ export default {
       return async (dispatch) => {
         payload.key && dispatch({ type: 'GLOBAL_REQUEST', payload });
         new Proxy().addData(payload.url, payload.data, customId).then(res => {
-          // dispatch({ type: 'GLOBAL_SUCCESS', payload: { key: payload.key, data: res }});
+          message.success('Üye başarılı bir şekilde eklendi');
         }).catch(err => {
           dispatch({ type: 'GLOBAL_ERROR', payload: { key: payload.key, error: err }});
         });
@@ -33,10 +33,15 @@ export default {
       }
     }
   },
-  updateData: () => {
-
-  },
-  deleteData: () => {
-
+  deleteData: (payload) => {
+    const { endpoint, id } = payload;
+    return async (dispatch) => {
+      new Proxy().deleteData(endpoint, id).then(res => {
+        message.success("Üye başarılı bir şekilde silindi");
+        window.location.reload();
+      }).catch(err => {
+        message.error("Üye silinirken bir hata oluştu");
+      });
+    }
   }
 };
