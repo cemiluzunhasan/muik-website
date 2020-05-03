@@ -36,7 +36,7 @@ export default class Proxy {
         }, err => {
           reject(err);
         });
-      })
+      });
     }
     else {
       return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ export default class Proxy {
         }, err => {
           reject(err);
         });
-      })
+      });
     }
   }
 
@@ -56,6 +56,15 @@ export default class Proxy {
       }).catch(err => {
         reject(err);
       })
-    })
+    });
+  }
+  deleteStorage(endpoint, id) {
+    return new Promise((resolve, reject) => {
+      firebase.storage().ref(endpoint).child(id).delete().then(res => {
+        resolve(res);
+      }).catch(err => {
+        reject(err);
+      })
+    });
   }
 }

@@ -17,7 +17,7 @@ export default {
       return async (dispatch) => {
         payload.key && dispatch({ type: 'GLOBAL_REQUEST', payload });
         new Proxy().addData(payload.url, payload.data, customId).then(res => {
-          message.success('Üye başarılı bir şekilde eklendi');
+          message.success('Başarılı bir şekilde eklendi');
         }).catch(err => {
           dispatch({ type: 'GLOBAL_ERROR', payload: { key: payload.key, error: err }});
         });
@@ -26,9 +26,10 @@ export default {
       return async (dispatch) => {
         payload.key && dispatch({ type: 'GLOBAL_REQUEST', payload });
         new Proxy().addData(payload.url, payload.data).then(res => {
-          message.success('Üye başarılı bir şekilde eklendi');
+          message.success('Başarılı bir şekilde eklendi');
+          window.location.replace('/dashboard/articles/list');
         }).catch(err => {
-          message.success('Üye eklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin');
+          message.error('Eklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin');
         });
       }
     }
@@ -37,10 +38,10 @@ export default {
     const { endpoint, id } = payload;
     return async (dispatch) => {
       new Proxy().deleteData(endpoint, id).then(res => {
-        message.success("Üye başarılı bir şekilde silindi");
+        message.success("Başarılı bir şekilde silindi");
         window.location.reload();
       }).catch(err => {
-        message.error("Üye silinirken bir hata oluştu");
+        message.error("Silinirken bir hata oluştu");
       });
     }
   }
