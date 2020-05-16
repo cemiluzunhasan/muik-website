@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { MEMBERS } from '../../../data/about';
 import { global } from '../../../store/actions';
 
 const Members = ({ dispatch, members }) => {
