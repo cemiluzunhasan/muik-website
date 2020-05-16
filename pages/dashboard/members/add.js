@@ -58,11 +58,15 @@ const AddMember = ({ dispatch }) => {
     }).catch(err => {
       console.log("Hata var", err);
     });
-      
   }
 
   const submit = () => {
-    dispatch(global.addData({ url: '/members', data: member }, member.id));
+    setLoading(true);
+    dispatch(global.addData({ url: '/members', data: member }, member.id)).then(() => {
+      setLoading(false);
+    }).catch(err => {
+      setLoading(false);
+    });
   }
 
   const uploadButton = (
@@ -90,7 +94,7 @@ const AddMember = ({ dispatch }) => {
           </Upload>
           <Input placeholder="Adı Soyadı" onChange={(e) => handleChange('name', e.target.value)} />
           <Input placeholder="Görevi" onChange={(e) => handleChange('role', e.target.value)} />
-          <Button type="primary" onClick={submit}>Üyeyi Ekle</Button>
+          <Button type="primary" loading={loading} onClick={submit}>Üyeyi Ekle</Button>
         </Col>
       </Row>
     </div> 

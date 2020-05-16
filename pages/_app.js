@@ -7,10 +7,19 @@ import { withRouter } from 'next/router';
 import { Provider } from 'react-redux';
 import { LogoutOutlined } from '@ant-design/icons';
 import store from '../store';
+import firebase from '../plugins/firebase';
+
 const { Header, Sider, Content, Footer } = Layout;
 
 const MyApp  = ({ Component, pageProps, router }) => {
   const { route } = router;
+  
+  const logout = () => {
+    firebase.auth().signOut().then(() => {
+      router.push('/');
+    })
+  }
+
   return (
     <Provider store={store}>
       <Layout>
@@ -25,7 +34,7 @@ const MyApp  = ({ Component, pageProps, router }) => {
           <Layout>
             <Sider className="Sider">
               <MuikSider />
-              <LogoutOutlined />
+              <LogoutOutlined onClick={logout} />
             </Sider>
             <Content>
               <div className="DashboardContainer page">

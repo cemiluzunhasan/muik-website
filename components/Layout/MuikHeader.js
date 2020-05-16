@@ -18,6 +18,10 @@ const MuikHeader = ({ router }) => {
     router.push(route);
   }
 
+  const openTab = (url) => {
+    window.open(url, '_blank');
+  }
+
   return (
     <div className="HeaderMenu">
       <div className="full-content">
@@ -38,10 +42,10 @@ const MuikHeader = ({ router }) => {
           <span className="third" />
         </div>
         <div className="SocialMedia">
-          <img src="/static/icons/social/instagram.svg" className="SocialIcon" />
-          <img src="/static/icons/social/twitter.svg" className="SocialIcon" />
-          <img src="/static/icons/social/facebook.svg" className="SocialIcon" />
-          <img src="/static/icons/social/linkedin.svg" className="SocialIcon" />
+          <img src="/static/icons/social/instagram.svg" className="SocialIcon" onClick={() => openTab('https://www.instagram.com/miletisimkulubu/?hl=tr')} />
+          <img src="/static/icons/social/twitter.svg" className="SocialIcon" onClick={() => openTab('https://twitter.com/miletisimkulubu')} />
+          <img src="/static/icons/social/facebook.svg" className="SocialIcon" onClick={() => openTab('https://www.facebook.com/miletisimkulubu')} />
+          <img src="/static/icons/social/linkedin.svg" className="SocialIcon" onClick={() => openTab('https://www.linkedin.com/company/marmarailetisim/')}/>
         </div>
         <HamburgerMenu isVisible={isVisible} onClose={onClose} />
       </div>

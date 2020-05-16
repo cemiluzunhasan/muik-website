@@ -1,19 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { withRouter } from 'next/router';
-import { Input, Form, Button } from 'antd';
+import { Input, Form, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { auth } from '../store/actions';
 import AuthProxy from '../proxies/AuthProxy';
 import { route } from 'next/dist/next-server/server/router';
+import firebase from '../plugins/firebase';
 
 const Login = ({ router, dispatch, user }) => {
+  
+  const [loading, setLoading] = useState(false);
+
   const onFinish = (form) => {
-    new AuthProxy(form).login().then(res => {
-      dispatch(auth.login(res.user));
+    setLoading(true);
+    firebase.auth().signInWithEmailAndPassword(form.username, form.password).then(() => {
+      setLoading(false);
+      router.push('/dashboard');
     }).catch(err => {
-      console.log("Error", err);
-    })
+      setLoading(false);
+      message.error(err.message);
+    });
   };
   
   useEffect(() => {
@@ -41,7 +48,7 @@ const Login = ({ router, dispatch, user }) => {
             <Input type="password" placeholder="Parola" prefix={<LockOutlined />} />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={loading}>
               Giriş Yap
             </Button>
           </Form.Item>

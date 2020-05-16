@@ -1,8 +1,8 @@
 
 import { useEffect } from 'react';
 import { withRouter } from 'next/router';
-import firebase from '../../plugins/firebase';
 import AuthProxy from '../../proxies/AuthProxy';
+import 'react-quill/dist/quill.snow.css';
 
 const Dashboard = ({ router }) => {
   useEffect(() => {

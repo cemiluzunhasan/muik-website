@@ -1,18 +1,16 @@
-import { useState } from 'react';
-import { Row, Col } from 'antd';
-import events from '../data/events';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'next/router';
+import { Row, Col, Empty } from 'antd';
 import EventItem from '../components/Pages/Events/EventItem';
+import Loading from '../components/UIComponents/Loading';
+import { global } from '../store/actions';
 
-const Events = () => {
-  const [data, setDataOne] = useState({
-    name: '',
-    date: '',
-    category: '',
-  });
-
-  const setData = (key, value) => {
-    
-  };
+const Events = ({ router, dispatch, events }) => {
+  
+  useEffect(() => {
+    dispatch(global.getData({ url: '/events', key: 'events' }));
+  }, []);
 
   return (
     <div className="Events page">
@@ -42,11 +40,19 @@ const Events = () => {
           </Row>
         </div>
       </div>
-      <div className="full-content text-center">
-        {events.map(event => <EventItem key={event.id} event={event} />)}
-      </div>
+      { events.loading ? 
+        <Loading text="Etkinlikler yükleniyor" />
+        :
+        <div className="full-content text-center">
+        {events.data ? events.data.map(event => <EventItem key={event.id} event={event} />)
+            :
+            <Empty description="Gösterilecek etklinlik yok" />
+        }
+        </div>
+      }
     </div>
   );
 };
 
-export default Events;
+const mapStateToProps = (state) => ({ events: state.global.events });
+export default withRouter(connect(mapStateToProps, null)(Events));

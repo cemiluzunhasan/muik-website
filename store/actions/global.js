@@ -18,6 +18,7 @@ export default {
         payload.key && dispatch({ type: 'GLOBAL_REQUEST', payload });
         new Proxy().addData(payload.url, payload.data, customId).then(res => {
           message.success('Başarılı bir şekilde eklendi');
+          return true;
         }).catch(err => {
           dispatch({ type: 'GLOBAL_ERROR', payload: { key: payload.key, error: err }});
         });
